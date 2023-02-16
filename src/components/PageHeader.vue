@@ -2,17 +2,15 @@
     <header>
         <nav class="navbar bg-dark d-flex justify-content-between header_title" data-bs-theme="dark">
             <div class="d-flex">
-                <li>HOME</li>
-                <li>영업부 업무보고</li>
+                <li><router-link to="/">HOME</router-link></li>
+                <li><router-link to="/board/list">게시판</router-link></li>      
             </div>
-            <li>MYPAGE</li>
+            <li><router-link to="/mypage">MYPAGE</router-link></li>
         </nav>
     </header>
 </template>
 
 <script>
-
-
 export default {
 
 }
@@ -21,11 +19,10 @@ export default {
 <style scoped>
 li {
     padding: 5px 10px 5px 10px;
+    list-style: none;
 }
 
 .header_title {
-    color: white;
-    list-style: none;
     font-weight: bold;
 }
 </style>

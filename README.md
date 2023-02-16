@@ -1,4 +1,4 @@
-# vue01
+# vue 공부
 
 ## Project setup
 ```
@@ -20,5 +20,17 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### vue-router 설치 (페이지 이동)
+```
+1. npm i --save vue-router
+2. import { createRouter, createWebHistory } from 'vue-router'
+3. const routes = []
+4. 
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+})
+
+export default router
+```
+
