@@ -32,5 +32,7 @@ const router = createRouter({
 })
 
 export default router
+5. import router from './router'
 ```
+
 
