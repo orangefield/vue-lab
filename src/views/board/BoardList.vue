@@ -21,7 +21,7 @@
                     <td>{{ row.idx }}</td>
                     <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
                     <td>{{ row.author }}</td>
-                    <td>{{ row.created_at }}</td>
+                    <td>{{ row.createdAt }}</td>
                 </tr>
             </tbody>
             <!-- 테이블 바디 끝 -->
@@ -57,7 +57,7 @@ export default {
     
     data() { //변수생성
         return {
-            // requestBody: {}, //리스트 페이지 데이터전송
+            requestBody: {}, //리스트 페이지 데이터전송
             list: {}, //리스트 데이터
             // no: '', //게시판 숫자처리
             /*
@@ -92,116 +92,17 @@ export default {
     },
     methods: {
         fnGetList() {
-            this.list = [
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
-                },
-                {
-                    "idx": 1,
-                    "title": "제목1",
-                    "author": "작성자1",
-                    "created_at": "작성일시1"
+            this.requestBody = {}
+            this.$axios.get("/board/list", {
+                params: this.requestBody,
+                headers: {}
+            }).then((res)=>{
+                this.list = res.data  // res;response
+            }).catch((err)=>{
+                if(err.message > -1){
+                    alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해 주세요.')
                 }
-            ]
+            })
         }
     }
 }
