@@ -41,6 +41,7 @@ export default {
         this.fnGetView()
     },
     methods: {
+        // 게시글 한 건 GET 요청
         fnGetView() {
             this.$axios.get('/board/' + this.idx, {   // 주소 설정 되게 마음에 안드네. 주소 공부해야겠다
                 params: this.requestBody

@@ -91,6 +91,7 @@ export default {
         this.fnGetList()
     },
     methods: {
+        // 게시글 목록 가져오기
         fnGetList() {
             this.requestBody = {}
             this.$axios.get("/board/list", {
@@ -104,6 +105,7 @@ export default {
                 }
             })
         },
+        // 게시글 한 건 상세조회
         fnView(idx) {
             this.requestBody.idx = idx
             this.$router.push({
@@ -111,6 +113,12 @@ export default {
                 query: this.requestBody         // query : 쿼리스트링 부분; /detail?idx
             })
             // console.log(this.$router);
+        },
+        // 게시글 생성
+        fnWrite(){
+            this.$router.push({
+                path: './write'
+            })
         }
     }
 }
