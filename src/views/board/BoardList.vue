@@ -54,7 +54,7 @@
 
 <script>
 export default {
-    
+
     data() { //변수생성
         return {
             requestBody: {}, //리스트 페이지 데이터전송
@@ -86,7 +86,7 @@ export default {
             }*/
         }
     },
-    
+
     mounted() {
         this.fnGetList()
     },
@@ -96,13 +96,21 @@ export default {
             this.$axios.get("/board/list", {
                 params: this.requestBody,
                 headers: {}
-            }).then((res)=>{
+            }).then((res) => {
                 this.list = res.data  // res;response
-            }).catch((err)=>{
-                if(err.message > -1){
+            }).catch((err) => {
+                if (err.message > -1) {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해 주세요.')
                 }
             })
+        },
+        fnView(idx) {
+            this.requestBody.idx = idx
+            this.$router.push({
+                path: './detail',               // path : 주소에 포함
+                query: this.requestBody         // query : 쿼리스트링 부분; /detail?idx
+            })
+            // console.log(this.$router);
         }
     }
 }
