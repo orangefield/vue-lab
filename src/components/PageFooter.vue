@@ -1,7 +1,7 @@
 <template>
     <footer>
         <hr/>
-        footer
+        <img alt="pdlogo" src="../assets/pdlogo.png">
     </footer>
 </template>
 
@@ -11,4 +11,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

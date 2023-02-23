@@ -56,6 +56,32 @@ export default {
                     alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해 주세요.')
                 }
             })
+        },
+        // 게시글 목록으로 돌아가기
+        fnList() {
+            delete this.requestBody.idx // 신기하네
+            this.$router.push({
+                path: './list',
+                query: this.requestBody
+            })
+        },
+        // 게시글 수정하기
+        fnUpdate() {
+            this.$router.push({
+                path: './write',
+                query: this.requestBody
+            })
+        },
+        // 게시글 삭제하기
+        fnDelete() {
+            if (confirm("삭제하시겠습니까?"))
+                return this.$axios.delete('/board/' + this.idx, {})
+                    .then(() => {
+                        alert('삭제되었습니다.')
+                        this.fnList();
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
         }
     }
 

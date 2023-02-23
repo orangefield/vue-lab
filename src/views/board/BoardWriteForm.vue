@@ -87,6 +87,16 @@ export default {
                             alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해 주세요.')
                         }
                     })
+            } else {
+                // UPDATE
+                this.$axios.put(apiUrl, this.form)
+                    .then((res)=>{
+                        this.fnView(res.data.idx)
+                    }).catch((err)=>{
+                        if(err.message > -1){
+                            alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해 주세요.')
+                        }
+                    })
             }
         }
     }
