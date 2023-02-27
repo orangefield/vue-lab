@@ -3,6 +3,7 @@ import PageHome from '@/views/PageHome.vue'
 import BoardList from '@/views/board/BoardList.vue'
 import BoardDetail from '@/views/board/BoardDetail.vue'
 import BoardWriteForm from '@/views/board/BoardWriteForm.vue'
+import Emp_vueList from '@/views/emp_vue/Emp_vueList.vue'
 
 const routes = [
   {
@@ -18,6 +19,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/PageMy.vue')
   },
+  // board 관련 시작 ======================
   {
     path: '/board/list',
     name: 'BoardList',
@@ -32,7 +34,15 @@ const routes = [
     path: '/board/write',
     name: 'BoardWriteForm',
     component: BoardWriteForm
-  }
+  },
+  // board 관련 끝 ======================
+  // emp_vue 관련 시작 ======================
+  {
+    path: '/emp-vue/list',
+    name: 'Emp_vueList',
+    component: Emp_vueList
+  },
+  // emp_vue 관련 끝 ======================
 ]
 
 const router = createRouter({
