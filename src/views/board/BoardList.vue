@@ -18,7 +18,7 @@
             <!-- 테이블 바디 시작 -->
             <tbody>
                 <tr v-for="(row, idx) in list" :key="idx">
-                    <td>{{ row.idx }}</td>
+                    <td>{{ incrementIndex(idx) }}</td>
                     <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
                     <td>{{ row.author }}</td>
                     <td>{{ row.createdAt }}</td>
@@ -91,6 +91,10 @@ export default {
         this.fnGetList()
     },
     methods: {
+        // 게시판 출력용 인덱스 생성(진짜가 아니다)
+        incrementIndex(index) {
+            return index + 1;
+        },
         // 게시글 목록 가져오기
         fnGetList() {
             this.requestBody = {}
@@ -115,7 +119,7 @@ export default {
             // console.log(this.$router);
         },
         // 게시글 생성
-        fnWrite(){
+        fnWrite() {
             this.$router.push({
                 path: './write'
             })

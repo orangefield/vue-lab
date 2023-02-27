@@ -1,7 +1,9 @@
 <template>
     <footer>
-        <hr/>
-        <img alt="pdlogo" src="../assets/pdlogo.png">
+        <hr />
+        <div class="pdlogo">
+            <img src="../assets/pdlogo.png">
+        </div>
     </footer>
 </template>
 
@@ -12,5 +14,8 @@ export default {
 </script>
 
 <style scoped>
-
+.pdlogo {
+    display: flex;
+    justify-content: end;
+}
 </style>
